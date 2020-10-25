@@ -15,8 +15,12 @@ class App extends React.Component {
     }
   }
 
-  onChangeType = () => {
-    debugger
+  changeType = () => {
+    console.log('in changeType')
+  }
+
+  fetchPets = () => {
+    fetch('/api/pets')
   }
 
   render() {
@@ -28,7 +32,7 @@ class App extends React.Component {
         <div className="ui container">
           <div className="ui grid">
             <div className="four wide column">
-              <Filters onChangeType={this.onChangeType} />
+              <Filters onChangeType={this.changeType} onFindPetsClick={this.fetchPets}/>
             </div>
             <div className="twelve wide column">
               <PetBrowser />
