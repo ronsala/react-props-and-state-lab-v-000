@@ -20,7 +20,11 @@ class App extends React.Component {
   }
 
   fetchPets = () => {
-    fetch('/api/pets')
+    if(this.state.filters.type === 'all') {
+      fetch('/api/pets')
+    } else {
+      fetch(`/api/pets?type=${this.state.filters.type}`)
+    }
   }
 
   render() {
